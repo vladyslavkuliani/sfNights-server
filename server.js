@@ -1,4 +1,3 @@
-'use strict'
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -25,14 +24,14 @@ app.use(session({
   cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan (in milliseconds)
 }));
 
-// app.use(function(req, res, next) {
-//  res.setHeader("Access-Control-Allow-Origin", "*");
-//  res.setHeader("Access-Control-Allow-Credentials", 'true');
-//  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-//  res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-//  res.setHeader("Cache-Control", "no-cache");
-//   next();
-// });
+app.use(function(req, res, next) {
+ res.setHeader("Access-Control-Allow-Origin", "*");
+ res.setHeader("Access-Control-Allow-Credentials", 'true');
+ res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+ res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+ res.setHeader("Cache-Control", "no-cache");
+  next();
+});
 
 app.post('/signup', function(req, res){
   User.createSecure(req.body.name, req.body.email, req.body.dob, req.body.password, function(err, user){
@@ -209,6 +208,6 @@ app.get('/currentuser', function(req, res){
 
 app.get('/test', (req, res)=>{
     res.json({data: "hey!"});
-})
+});
 
 app.listen(process.env.PORT || 3000);
