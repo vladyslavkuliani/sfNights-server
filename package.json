@@ -1,0 +1,28 @@
+{
+  "name": "sf-nights-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladyslavkuliani/sfNights-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladyslavkuliani/sfNights-server/issues"
+  },
+  "homepage": "https://github.com/vladyslavkuliani/sfNights-server#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "mongoose": "^4.9.1",
+    "yelp-fusion": "^1.0.3"
+  }
+}
